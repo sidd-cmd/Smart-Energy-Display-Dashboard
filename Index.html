@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Smart Energy Dashboard</title>
   <link rel="stylesheet" href="style.css" />
 </head>
@@ -13,63 +13,67 @@
 
   <main>
     <!-- Summary Cards -->
-    <section class="summary">
+    <section class="summary" aria-labelledby="summary-heading">
+      <h2 id="summary-heading" class="visually-hidden">Summary cards</h2>
       <div class="card">
-        <h2>Current Power Usage</h2>
+        <h3>Current Power Usage</h3>
         <p id="currentPower" class="value">1.42 kW</p>
       </div>
       <div class="card">
-        <h2>Today's Consumption</h2>
+        <h3>Today's Consumption</h3>
         <p id="todayUsage" class="value">8.6 kWh</p>
       </div>
       <div class="card">
-        <h2>Weekly Average</h2>
+        <h3>Weekly Average</h3>
         <p id="weeklyAvg" class="value">54.3 kWh</p>
       </div>
     </section>
 
     <!-- Chart Section -->
-    <section class="chart-section">
-      <h2>Energy Usage (Last 6 Hours)</h2>
-      <canvas id="energyChart" width="600" height="300"></canvas>
+    <section class="chart-section" aria-labelledby="chart-heading">
+      <h2 id="chart-heading">Energy Usage (Last 6 Hours)</h2>
+      <div class="canvas-wrap">
+        <canvas id="energyChart" aria-label="Energy usage chart" role="img"></canvas>
+      </div>
     </section>
 
     <!-- Appliance Section -->
-    <section class="devices">
-      <h2>Appliance Monitoring</h2>
+    <section class="devices" aria-labelledby="devices-heading">
+      <h2 id="devices-heading">Appliance Monitoring</h2>
       <div class="device-grid">
-        <div class="device">
+        <div class="device" data-power="0.85">
           <h3>Air Conditioner</h3>
           <p>Power: <span id="acPower">0.85</span> kW</p>
-          <p>Status: <span class="on">ON</span></p>
+          <p>Status: <span class="status on">ON</span></p>
         </div>
-        <div class="device">
+        <div class="device" data-power="0.15">
           <h3>Refrigerator</h3>
           <p>Power: <span id="fridgePower">0.15</span> kW</p>
-          <p>Status: <span class="on">ON</span></p>
+          <p>Status: <span class="status on">ON</span></p>
         </div>
-        <div class="device">
+        <div class="device" data-power="0.00">
           <h3>Washing Machine</h3>
           <p>Power: <span id="washPower">0.00</span> kW</p>
-          <p>Status: <span class="off">OFF</span></p>
+          <p>Status: <span class="status off">OFF</span></p>
         </div>
-        <div class="device">
+        <div class="device" data-power="0.25">
           <h3>Lighting</h3>
           <p>Power: <span id="lightPower">0.25</span> kW</p>
-          <p>Status: <span class="on">ON</span></p>
+          <p>Status: <span class="status on">ON</span></p>
         </div>
       </div>
     </section>
 
     <section class="footer-note">
-      <p>Last updated: <span id="updateTime">--:--</span> | Data simulated for demo</p>
+      <p>Last updated: <time id="updateTime">--:--</time> | Data simulated for demo</p>
     </section>
   </main>
 
-  <!-- Chart.js library -->
+  <!-- Chart.js library (CDN) -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <script src="script.js"></script>
-  <style src="style.css"></style>
+  <!-- App script (deferred) -->
+  <script src="script.js" defer></script>
 </body>
 </html>
+
 
