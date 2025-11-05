@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Smart Energy Dashboard</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>🏠 Smart Energy Dashboard</h1>
+  </header>
+
+  <main>
+    <!-- Summary Cards -->
+    <section class="summary">
+      <div class="card">
+        <h2>Current Power Usage</h2>
+        <p id="currentPower" class="value">1.42 kW</p>
+      </div>
+      <div class="card">
+        <h2>Today's Consumption</h2>
+        <p id="todayUsage" class="value">8.6 kWh</p>
+      </div>
+      <div class="card">
+        <h2>Weekly Average</h2>
+        <p id="weeklyAvg" class="value">54.3 kWh</p>
+      </div>
+    </section>
+
+    <!-- Chart Section -->
+    <section class="chart-section">
+      <h2>Energy Usage (Last 6 Hours)</h2>
+      <canvas id="energyChart" width="600" height="300"></canvas>
+    </section>
+
+    <!-- Appliance Section -->
+    <section class="devices">
+      <h2>Appliance Monitoring</h2>
+      <div class="device-grid">
+        <div class="device">
+          <h3>Air Conditioner</h3>
+          <p>Power: <span id="acPower">0.85</span> kW</p>
+          <p>Status: <span class="on">ON</span></p>
+        </div>
+        <div class="device">
+          <h3>Refrigerator</h3>
+          <p>Power: <span id="fridgePower">0.15</span> kW</p>
+          <p>Status: <span class="on">ON</span></p>
+        </div>
+        <div class="device">
+          <h3>Washing Machine</h3>
+          <p>Power: <span id="washPower">0.00</span> kW</p>
+          <p>Status: <span class="off">OFF</span></p>
+        </div>
+        <div class="device">
+          <h3>Lighting</h3>
+          <p>Power: <span id="lightPower">0.25</span> kW</p>
+          <p>Status: <span class="on">ON</span></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="footer-note">
+      <p>Last updated: <span id="updateTime">--:--</span> | Data simulated for demo</p>
+    </section>
+  </main>
+
+  <!-- Chart.js library -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
